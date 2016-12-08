@@ -1,0 +1,159 @@
+digraph Factorio {
+
+cold_water [shape=box,color=blue,style=bold,fontcolor=blue, label="Cold Water"];
+hot_water [shape=oval,color=blue,style=bold,fontcolor=blue, label="Hot Water"];
+
+// raw_wood [shape=box,color=blue,style=bold,fontcolor=blue, label="Raw Wood"];
+// wood [shape=oval,color=blue,style=bold,fontcolor=blue, label="Wood"];
+// sm_pole [shape=oval,color=blue,style=bold,fontcolor=blue, label="Small Electric Pole"];
+// raw_wood->wood;
+// wood->sm_pole;
+// copper_wire->sm_pole;
+
+coal [shape=box,color=blue,style=bold,fontcolor=blue, label="Coal"];
+
+iron_ore [shape=box,color=blue,style=bold,fontcolor=blue, label="Iron Ore"];
+iron_plate [shape=oval,color=blue,style=bold,fontcolor=blue, label="Iron Plate"];
+steel_plate [shape=oval,color=blue,style=bold,fontcolor=blue, label="Steel Plate"];
+
+pipe [shape=oval,color=blue,style=bold,fontcolor=blue, label="Pipe"];
+ug_pipe [shape=oval,color=blue,style=bold,fontcolor=blue, label="Underground Pipe"];
+
+copper_ore [shape=box,color=blue,style=bold,fontcolor=blue, label="Copper Ore"];
+copper_plate [shape=oval,color=blue,style=bold,fontcolor=blue, label="Copper Plate"];
+copper_wire [shape=oval,color=blue,style=bold,fontcolor=blue, label="Copper Plate"];
+
+oil [shape=box,color=black,style=bold,fontcolor=black, label="Oil"];
+petrol [shape=oval,color=black,style=bold,fontcolor=black, label="Petrol"];
+light_oil [shape=oval,color=orange,style=bold,fontcolor=black, label="Light Oil"];
+heavy_oil [shape=oval,color=red,style=bold,fontcolor=black, label="Heavy Oil"];
+solid_fuel [shape=oval,color=red,style=bold,fontcolor=black, label="Solid Fuel"];
+
+plastic [shape=oval,color=black,style=bold,fontcolor=black, label="Plastic"];
+
+green_circuit [shape=oval,color=green,style=bold,fontcolor=black, label="Green Circuits"];
+
+iron_ore->iron_plate;
+iron_plate->gear;
+iron_plate->steel_plate;
+
+
+iron_plate->yellow_belt;
+gear->yellow_belt;
+
+yellow_belt->underground_belt;
+gear->underground_belt;
+
+yellow_belt->red_belt;
+gear->red_belt;
+
+yellow_belt->yellow_splitter;
+iron_plate->yellow_splitter;
+green_circuit->yellow_splitter;
+
+underground_belt->red_underground_belt;
+gear->red_underground_belt;
+
+green_circuit->red_splitter;
+yellow_splitter->red_splitter;
+gear->red_splitter;
+
+red_belt->blue_belt;
+gear->blue_belt;
+lube->blue_belt;
+
+red_underground_belt->blueunderground_belt;
+gear->blue_underground_belt;
+lube->blue_underground_belt;
+
+red_splitter->blue_splitter;
+gear->blue_splitter;
+red_ciruit->blue_splitter;
+lube->blue_splitter;
+
+iron_plate->assmb_machine;
+gear->assmb_machine;
+green_circuit->assmb_machine;
+
+iron_plate->assmb_machine2;
+gear->assmb_machine2;
+green_circuit->assmb_machine2;
+assmb_machine->assmb_machine2;
+
+assmb_machine2->assmb_machine3;
+speed_module->assmb_machine3;
+
+iron_plate->pipe;
+pipe->ug_pipe;
+iron_plate->ug_pipe;
+
+iron_plate->inserter;
+gear->inserter;
+copper_plate->inserter;
+
+inserter->lh_inserter;
+iron_plate->lh_inserter;
+gear->lh_inserter;
+
+inserter->fast_inserter;
+iron_plate->fast_inserter;
+green_circuit->fast_inserter;
+
+fast_inserter->filter_inserter;
+green_circuit->filter_inserter;
+
+fast_inserter->stack_inserter;
+gear->stack_inserter;
+red_ciruit->stack_inserter;
+green_circuit->stack_inserter;
+
+stack_inserter->stack_filter_inserter;
+green_circuit->stack_filter_inserter;
+
+copper_ore->copper_plate;
+copper_plate->copper_wire;
+
+copper_wire->green_circuit;
+iron_plate->green_circuit;
+
+oil->petrol;
+oil->light_oil;
+oil->heavy_oil;
+
+petrol->solid_fuel;
+light_oil->solid_fuel;
+heavy_oil->solid_fuel;
+heavy_oil->lube;
+
+petrol->plastic;
+coal->plastic;
+
+cold_water->bolier;
+coal->bolier;
+solid_fuel->bolier;
+bolier->hot_water;
+
+cold_water->sulfur;
+petrol->sulfur;
+
+cold_water->sulfuric_acid;
+sulfur->sulfuric_acid;
+iron_plate->sulfuric_acid;
+
+sulfuric_acid->battery;
+copper_plate->battery;
+iron_plate->battery;
+
+copper_wire->red_ciruit;
+green_circuit->red_ciruit;
+plastic->red_ciruit;
+
+red_ciruit->blue_circuit;
+green_circuit->blue_circuit;
+sulfuric_acid->blue_circuit;
+
+
+}
+
+
+
